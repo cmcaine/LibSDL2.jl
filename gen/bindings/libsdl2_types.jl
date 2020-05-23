@@ -1821,7 +1821,8 @@ const WINDOW_LACKS_SHAPE = -3
 
 # Skipping MacroDefinition: SHAPEMODEALPHA ( mode ) ( mode == ShapeModeDefault || mode == ShapeModeBinarizeAlpha || mode == ShapeModeReverseBinarizeAlpha )
 
-@cenum WindowShapeMode::UInt32 begin
+#= renamed =#
+@cenum WindowShapeModeEnum::UInt32 begin
     ShapeModeDefault = 0
     ShapeModeBinarizeAlpha = 1
     ShapeModeReverseBinarizeAlpha = 2
@@ -1834,7 +1835,8 @@ mutable struct WindowShapeParams
 end
 
 mutable struct WindowShapeMode
-    mode::WindowShapeMode
+    #= renamed =#
+    mode::WindowShapeModeEnum
     parameters::WindowShapeParams
 end
 
