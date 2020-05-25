@@ -1,4 +1,5 @@
 # Automatically generated using Clang.jl
+# Then edited slightly
 
 
 const INIT_TIMER = UInt32(0x00000001)
@@ -260,14 +261,14 @@ end
 
 
 mutable struct CommonEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
 end
 
 const Sint32 = Int32
 
 mutable struct DisplayEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     display::Uint32
     event::Uint8
@@ -278,7 +279,7 @@ mutable struct DisplayEvent
 end
 
 mutable struct WindowEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     event::Uint8
@@ -547,7 +548,7 @@ mutable struct Keysym
 end
 
 mutable struct KeyboardEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     state::Uint8
@@ -558,7 +559,7 @@ mutable struct KeyboardEvent
 end
 
 mutable struct TextEditingEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     text::NTuple{32, UInt8}
@@ -567,14 +568,14 @@ mutable struct TextEditingEvent
 end
 
 mutable struct TextInputEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     text::NTuple{32, UInt8}
 end
 
 mutable struct MouseMotionEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     which::Uint32
@@ -586,7 +587,7 @@ mutable struct MouseMotionEvent
 end
 
 mutable struct MouseButtonEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     which::Uint32
@@ -599,7 +600,7 @@ mutable struct MouseButtonEvent
 end
 
 mutable struct MouseWheelEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     which::Uint32
@@ -612,7 +613,7 @@ const JoystickID = Sint32
 const Sint16 = Int16
 
 mutable struct JoyAxisEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::JoystickID
     axis::Uint8
@@ -624,7 +625,7 @@ mutable struct JoyAxisEvent
 end
 
 mutable struct JoyBallEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::JoystickID
     ball::Uint8
@@ -636,7 +637,7 @@ mutable struct JoyBallEvent
 end
 
 mutable struct JoyHatEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::JoystickID
     hat::Uint8
@@ -646,7 +647,7 @@ mutable struct JoyHatEvent
 end
 
 mutable struct JoyButtonEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::JoystickID
     button::Uint8
@@ -656,13 +657,13 @@ mutable struct JoyButtonEvent
 end
 
 mutable struct JoyDeviceEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::Sint32
 end
 
 mutable struct ControllerAxisEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::JoystickID
     axis::Uint8
@@ -674,7 +675,7 @@ mutable struct ControllerAxisEvent
 end
 
 mutable struct ControllerButtonEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::JoystickID
     button::Uint8
@@ -684,13 +685,13 @@ mutable struct ControllerButtonEvent
 end
 
 mutable struct ControllerDeviceEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::Sint32
 end
 
 mutable struct AudioDeviceEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::Uint32
     iscapture::Uint8
@@ -704,7 +705,7 @@ const TouchID = Sint64
 const FingerID = Sint64
 
 mutable struct TouchFingerEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     touchId::TouchID
     fingerId::FingerID
@@ -717,7 +718,7 @@ mutable struct TouchFingerEvent
 end
 
 mutable struct MultiGestureEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     touchId::TouchID
     dTheta::Cfloat
@@ -731,7 +732,7 @@ end
 const GestureID = Sint64
 
 mutable struct DollarGestureEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     touchId::TouchID
     gestureId::GestureID
@@ -742,31 +743,31 @@ mutable struct DollarGestureEvent
 end
 
 mutable struct DropEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     file::Cstring
     windowID::Uint32
 end
 
 mutable struct SensorEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     which::Sint32
     data::NTuple{6, Cfloat}
 end
 
 mutable struct QuitEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
 end
 
 mutable struct OSEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
 end
 
 mutable struct UserEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     windowID::Uint32
     code::Sint32
@@ -808,13 +809,16 @@ mutable struct SysWMmsg
 end
 
 mutable struct SysWMEvent
-    type::Uint32
+    type::EventType
     timestamp::Uint32
     msg::Ptr{SysWMmsg}
 end
 
+#= added common fields =#
 mutable struct Event
-    padding::NTuple{56, Uint8}
+    type::EventType
+    timestamp::Uint32
+    padding::NTuple{48, Uint8}
 end
 
 const compile_time_assert_Event = NTuple{1, Cint}

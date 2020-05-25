@@ -16,7 +16,7 @@ function BlitMap end
 # This type is not supported by Clang.jl or Julia yet.
 const AudioCVT = Cvoid
 
-# Renamed WindowShapeMode
+# Renamed WindowShapeMode, a few edits to Events
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_types.jl"))
 # Qualified some type names
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_funcs.jl"))
