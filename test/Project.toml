@@ -1,0 +1,4 @@
+[deps]
+Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+SDL2_jll = "ab825dc5-c88e-5901-9575-1e5e20358fcf"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
