@@ -89,6 +89,8 @@ Find out why `using SimpleDirectMediaLayer` is slow:
     Suggests we can only save time by loading the jlls lazily or by modifying
     the dependencies directly.
 
+    Don't bother: the jlls are known to load slowly, but decent improvements are incoming.
+
 
 ### How to integrate manual changes
 
@@ -113,14 +115,12 @@ Some types have lowercase names (mutex, sem, semaphore) (Maybe shouldn't fix thi
 
 Some types are aliased (Uint64 - UInt64, sem - semaphore, ...)
 
-There are docstrings in the headers that we could extract. This site has them, but it's not very ergonomic. We could extract them with doxygen or whatever.
+There are docstrings in the headers that we could extract. This site has them, but it's not very ergonomic.
 https://happiness_follows.gitee.io/doc_translate/SDL2-2.0.7/html/annotated.html
 
-doxygen is happy to output XML, could fairly easily extract the documentation from that.
+doxygen is happy to output XML, but the XML is in a shit format (attrs, not nodes, plz), so I've just scraped the strings direct from the source code and added them after the fact.
 
 Clang.jl wrap!() is the method that adds expressions to the buffer, but it's probably smarter to use the `rewrite` hook. rewrite accepts a vector of expressions.
-
-Could also just use @doc to add docstrings to symbols after the fact, but that would make the source a little harder to read.
 
 """
 
