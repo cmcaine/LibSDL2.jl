@@ -48,7 +48,15 @@ Compare with original
 
 ## Next
 
-Run the tests with these bindings.
+Done: Run the tests with these bindings.
+
+Done: Port the remaining macros that NHDaly did:
+ - https://github.com/jonathanBieler/SimpleDirectMediaLayer.jl/commit/ee594583aec7def27fa76ce9eee3dbce5cb9dd23#diff-16524f24c16a5c6939df897d14902bf7
+ - https://github.com/jonathanBieler/SimpleDirectMediaLayer.jl/commit/f5ca6b95de65e514a86d6d6ae2bdc9ce14cbb990#diff-16524f24c16a5c6939df897d14902bf7
+
+Try without removing the leading SDL_ ?
+
+Filter the shit macros with clang
 
 
 ## Future work
@@ -107,6 +115,12 @@ Some types are aliased (Uint64 - UInt64, sem - semaphore, ...)
 
 There are docstrings in the headers that we could extract. This site has them, but it's not very ergonomic. We could extract them with doxygen or whatever.
 https://happiness_follows.gitee.io/doc_translate/SDL2-2.0.7/html/annotated.html
+
+doxygen is happy to output XML, could fairly easily extract the documentation from that.
+
+Clang.jl wrap!() is the method that adds expressions to the buffer, but it's probably smarter to use the `rewrite` hook. rewrite accepts a vector of expressions.
+
+Could also just use @doc to add docstrings to symbols after the fact, but that would make the source a little harder to read.
 
 """
 
