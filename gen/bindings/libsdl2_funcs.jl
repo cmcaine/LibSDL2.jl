@@ -1153,75 +1153,75 @@ end
 
 
 function CreateMutex()
-    ccall((:SDL_CreateMutex, libsdl2), Ptr{SDL2_bindings.mutex}, ())
+    ccall((:SDL_CreateMutex, libsdl2), Ptr{LibSDL2.mutex}, ())
 end
 
 function LockMutex(mutex)
-    ccall((:SDL_LockMutex, libsdl2), Cint, (Ptr{SDL2_bindings.mutex},), mutex)
+    ccall((:SDL_LockMutex, libsdl2), Cint, (Ptr{LibSDL2.mutex},), mutex)
 end
 
 function TryLockMutex(mutex)
-    ccall((:SDL_TryLockMutex, libsdl2), Cint, (Ptr{SDL2_bindings.mutex},), mutex)
+    ccall((:SDL_TryLockMutex, libsdl2), Cint, (Ptr{LibSDL2.mutex},), mutex)
 end
 
 function UnlockMutex(mutex)
-    ccall((:SDL_UnlockMutex, libsdl2), Cint, (Ptr{SDL2_bindings.mutex},), mutex)
+    ccall((:SDL_UnlockMutex, libsdl2), Cint, (Ptr{LibSDL2.mutex},), mutex)
 end
 
 function DestroyMutex(mutex)
-    ccall((:SDL_DestroyMutex, libsdl2), Cvoid, (Ptr{SDL2_bindings.mutex},), mutex)
+    ccall((:SDL_DestroyMutex, libsdl2), Cvoid, (Ptr{LibSDL2.mutex},), mutex)
 end
 
 function CreateSemaphore(initial_value)
-    ccall((:SDL_CreateSemaphore, libsdl2), Ptr{SDL2_bindings.sem}, (Uint32,), initial_value)
+    ccall((:SDL_CreateSemaphore, libsdl2), Ptr{LibSDL2.sem}, (Uint32,), initial_value)
 end
 
 function DestroySemaphore(sem)
-    ccall((:SDL_DestroySemaphore, libsdl2), Cvoid, (Ptr{SDL2_bindings.sem},), sem)
+    ccall((:SDL_DestroySemaphore, libsdl2), Cvoid, (Ptr{LibSDL2.sem},), sem)
 end
 
 function SemWait(sem)
-    ccall((:SDL_SemWait, libsdl2), Cint, (Ptr{SDL2_bindings.sem},), sem)
+    ccall((:SDL_SemWait, libsdl2), Cint, (Ptr{LibSDL2.sem},), sem)
 end
 
 function SemTryWait(sem)
-    ccall((:SDL_SemTryWait, libsdl2), Cint, (Ptr{SDL2_bindings.sem},), sem)
+    ccall((:SDL_SemTryWait, libsdl2), Cint, (Ptr{LibSDL2.sem},), sem)
 end
 
 function SemWaitTimeout(sem, ms)
-    ccall((:SDL_SemWaitTimeout, libsdl2), Cint, (Ptr{SDL2_bindings.sem}, Uint32), sem, ms)
+    ccall((:SDL_SemWaitTimeout, libsdl2), Cint, (Ptr{LibSDL2.sem}, Uint32), sem, ms)
 end
 
 function SemPost(sem)
-    ccall((:SDL_SemPost, libsdl2), Cint, (Ptr{SDL2_bindings.sem},), sem)
+    ccall((:SDL_SemPost, libsdl2), Cint, (Ptr{LibSDL2.sem},), sem)
 end
 
 function SemValue(sem)
-    ccall((:SDL_SemValue, libsdl2), Uint32, (Ptr{SDL2_bindings.sem},), sem)
+    ccall((:SDL_SemValue, libsdl2), Uint32, (Ptr{LibSDL2.sem},), sem)
 end
 
 function CreateCond()
-    ccall((:SDL_CreateCond, libsdl2), Ptr{SDL2_bindings.cond}, ())
+    ccall((:SDL_CreateCond, libsdl2), Ptr{LibSDL2.cond}, ())
 end
 
 function DestroyCond(cond)
-    ccall((:SDL_DestroyCond, libsdl2), Cvoid, (Ptr{SDL2_bindings.cond},), cond)
+    ccall((:SDL_DestroyCond, libsdl2), Cvoid, (Ptr{LibSDL2.cond},), cond)
 end
 
 function CondSignal(cond)
-    ccall((:SDL_CondSignal, libsdl2), Cint, (Ptr{SDL2_bindings.cond},), cond)
+    ccall((:SDL_CondSignal, libsdl2), Cint, (Ptr{LibSDL2.cond},), cond)
 end
 
 function CondBroadcast(cond)
-    ccall((:SDL_CondBroadcast, libsdl2), Cint, (Ptr{SDL2_bindings.cond},), cond)
+    ccall((:SDL_CondBroadcast, libsdl2), Cint, (Ptr{LibSDL2.cond},), cond)
 end
 
 function CondWait(cond, mutex)
-    ccall((:SDL_CondWait, libsdl2), Cint, (Ptr{SDL2_bindings.cond}, Ptr{SDL2_bindings.mutex}), cond, mutex)
+    ccall((:SDL_CondWait, libsdl2), Cint, (Ptr{LibSDL2.cond}, Ptr{LibSDL2.mutex}), cond, mutex)
 end
 
 function CondWaitTimeout(cond, mutex, ms)
-    ccall((:SDL_CondWaitTimeout, libsdl2), Cint, (Ptr{SDL2_bindings.cond}, Ptr{SDL2_bindings.mutex}, Uint32), cond, mutex, ms)
+    ccall((:SDL_CondWaitTimeout, libsdl2), Cint, (Ptr{LibSDL2.cond}, Ptr{LibSDL2.mutex}, Uint32), cond, mutex, ms)
 end
 # Julia wrapper for header: name.h
 # Automatically generated using Clang.jl
@@ -1848,11 +1848,11 @@ function free(mem)
 end
 
 function GetMemoryFunctions(malloc_func, calloc_func, realloc_func, free_func)
-    ccall((:SDL_GetMemoryFunctions, libsdl2), Cvoid, (Ptr{SDL2_bindings.malloc_func}, Ptr{SDL2_bindings.calloc_func}, Ptr{SDL2_bindings.realloc_func}, Ptr{SDL2_bindings.free_func}), malloc_func, calloc_func, realloc_func, free_func)
+    ccall((:SDL_GetMemoryFunctions, libsdl2), Cvoid, (Ptr{LibSDL2.malloc_func}, Ptr{LibSDL2.calloc_func}, Ptr{LibSDL2.realloc_func}, Ptr{LibSDL2.free_func}), malloc_func, calloc_func, realloc_func, free_func)
 end
 
 function SetMemoryFunctions(malloc_func, calloc_func, realloc_func, free_func)
-    ccall((:SDL_SetMemoryFunctions, libsdl2), Cint, (SDL2_bindings.malloc_func, SDL2_bindings.calloc_func, SDL2_bindings.realloc_func, SDL2_bindings.free_func), malloc_func, calloc_func, realloc_func, free_func)
+    ccall((:SDL_SetMemoryFunctions, libsdl2), Cint, (LibSDL2.malloc_func, LibSDL2.calloc_func, LibSDL2.realloc_func, LibSDL2.free_func), malloc_func, calloc_func, realloc_func, free_func)
 end
 
 function GetNumAllocations()

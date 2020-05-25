@@ -1,1 +1,1 @@
-# SDL2_bindings
+# LibSDL2

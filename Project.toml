@@ -1,4 +1,4 @@
-name = "SDL2_bindings"
+name = "LibSDL2"
 uuid = "43d52f34-2fe4-41fc-8527-5975b4b31d2b"
 authors = ["Colin Caine <cmcaine@gmail.com>"]
 version = "0.1.0"

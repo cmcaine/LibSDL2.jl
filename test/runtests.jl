@@ -1,7 +1,7 @@
-using SDL2_bindings
+using LibSDL2
 using Test
 
-const SDL = SDL2_bindings
+const SDL = LibSDL2
 
 # Need on systems without system libSDL2
 #= using SDL2_jll =#
