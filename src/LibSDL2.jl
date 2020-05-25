@@ -2,6 +2,7 @@ module LibSDL2
 
 using CEnum: @cenum
 
+# This is temporary, don't worry.
 if isfile("/usr/lib/libSDL2.so")
     @info "Using system libSDL2"
     # Override this with `@eval LibSDL2 const libsdl2 = $(SDL2_jll.libsdl2)`
@@ -20,10 +21,10 @@ function BlitMap end
 # This type is not supported by Clang.jl or Julia yet.
 const AudioCVT = Cvoid
 
-# Renamed WindowShapeMode, a few edits to Events
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_types.jl"))
-# Qualified some type names
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_funcs.jl"))
+# Low stakes gripe: This adds 2s to precompilation time, but I could fully generate it
+# ahead of time with a bit of effort.
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_docs.jl"))
 
 # Macros ported by NHDaly
