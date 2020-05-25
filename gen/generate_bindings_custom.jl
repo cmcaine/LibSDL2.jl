@@ -88,6 +88,7 @@ function main()
         "BYTECAP",
         "OUT_Z_CAP",
         "OUT_CAP",
+        "BYTEORDER",
        ]
 
     docstrings = Dict()

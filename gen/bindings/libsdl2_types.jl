@@ -16,8 +16,6 @@ const ASSERT_LEVEL = 2
 
 # Skipping MacroDefinition: TriggerBreakpoint ( ) __asm__ __volatile__ ( "int $3\n\t" )
 
-const FILE = __FILE__
-const LINE = __LINE__
 const NULL_WHILE_LOOP_CONDITION = 0
 
 # Skipping MacroDefinition: disabled_assert ( condition ) do { ( void ) sizeof ( ( condition ) ) ; } while ( NULL_WHILE_LOOP_CONDITION )
@@ -170,7 +168,6 @@ end
 const CACHELINE_SIZE = 128
 const LIL_ENDIAN = 1234
 const BIG_ENDIAN = 4321
-const BYTEORDER = __BYTE_ORDER
 
 # Skipping MacroDefinition: SwapLE16 ( X ) ( X )
 # Skipping MacroDefinition: SwapLE32 ( X ) ( X )
@@ -1872,12 +1869,6 @@ const PRIs64 = "ld"
 const PRIu64 = "lu"
 const PRIx64 = "lx"
 const PRIX64 = "lX"
-const IN_BYTECAP = x
-const INOUT_Z_CAP = x
-const OUT_Z_CAP = x
-const OUT_CAP = x
-const OUT_BYTECAP = x
-const OUT_Z_BYTECAP = x
 
 # Skipping MacroDefinition: PRINTF_VARARG_FUNC ( fmtargnumber ) __attribute__ ( ( format ( __printf__ , fmtargnumber , fmtargnumber + 1 ) ) )
 # Skipping MacroDefinition: SCANF_VARARG_FUNC ( fmtargnumber ) __attribute__ ( ( format ( __scanf__ , fmtargnumber , fmtargnumber + 1 ) ) )
