@@ -49,9 +49,11 @@ const SDL = LibSDL2
         return true
     end
 
-    #= @test helloSDL() =#
+    @test helloSDL()
 
     include("lesson4.jl")
+
+    @test lesson4.main()
 end
 
 

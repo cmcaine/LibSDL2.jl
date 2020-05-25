@@ -6,6 +6,10 @@ Close the window in response to an event.
 Shows a smiley face with a transparent background over a tiled background of red and yellow text.
 
 """
+module lesson4
+
+using LibSDL2
+const SDL = LibSDL2
 
 sdlerror() = unsafe_string(SDL.GetError())
 
@@ -129,6 +133,8 @@ function main()
     SDL.DestroyRenderer(renderer)
     SDL.DestroyWindow(window)
     SDL.Quit()
+
+    return true
 end
 
-main()
+end
