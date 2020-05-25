@@ -2,6 +2,16 @@ module SDL2_bindings
 
 using CEnum: @cenum
 
+if isfile("/usr/lib/libSDL2.so")
+    @info "Using system libSDL2"
+    # Override this with `@eval SDL2_bindings const libsdl2 = $(SDL2_jll.libsdl2)`
+    const libsdl2 = "libSDL2"
+else
+    @info "Using SDL2_jll"
+    @eval using SDL2_jll
+    const libsdl2 = SDL2_jll.libsdl2
+end
+
 # Junk for macros that we should just filter.
 const __FILE__ = Cvoid
 const __LINE__ = Cvoid
