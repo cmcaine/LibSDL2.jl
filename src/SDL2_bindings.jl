@@ -20,6 +20,7 @@ const AudioCVT = Cvoid
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_types.jl"))
 # Qualified some type names
 include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_funcs.jl"))
+include(joinpath(@__DIR__, "..", "gen", "bindings", "libsdl2_docs.jl"))
 
 # Macros ported by NHDaly
 MUSTLOCK(S::Ptr{Surface}) = ((unsafe_load(S).flags & RLEACCEL) != 0)
