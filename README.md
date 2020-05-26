@@ -4,7 +4,7 @@ Julia bindings for LibSDL2, the Simple Directmedia Layer library.
 
 SDL is a cross-platform library for handling 2D graphics, windows, inputs, audio, 3D graphics context creation, etc.
 
-This library differs from SimpleDirectMediaLayer.jl in that:
+This library differs from [SimpleDirectMediaLayer.jl](https://github.com/jonathanBieler/SimpleDirectMediaLayer.jl) in that:
 
  - Most functions and structures have docstrings (extracted from the C source)
  - This includes functions up to v2.0.12 instead of v2.0.5
@@ -60,3 +60,9 @@ end
 
 helloSDL()
 ```
+
+## Related projects
+
+ - [SimpleDirectMediaLayer.jl](https://github.com/jonathanBieler/SimpleDirectMediaLayer.jl)
+ - [GameZero.jl](https://github.com/aviks/GameZero.jl)
+ - [Gloria.jl](https://github.com/dalum/Gloria.jl)
